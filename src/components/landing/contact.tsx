@@ -62,7 +62,7 @@ const ContactSection = () => {
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
       title: 'Email',
-      text: 'contato@bosquemananciais.org.br',
+      text: 'cultura@aepbr.org.br',
     },
   ];
 
