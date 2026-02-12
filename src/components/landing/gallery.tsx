@@ -37,7 +37,7 @@ const GallerySection = () => {
                 <div className="p-1">
                   <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     <CardContent className="flex aspect-square items-center justify-center p-0">
-                       <div className="relative w-full h-full">
+                      <div className="relative w-full h-full">
                         <Image
                           src={image.imageUrl}
                           alt={image.description}

@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import Logo from '@/components/logo';
 import { Button } from '@/components/ui/button';
-import { Twitter, Facebook, Instagram } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,18 +15,19 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground mt-2">
               © {currentYear} Colégio do Bosque Mananciais. Todos os direitos reservados.
               <br />
-              Uma instituição do <span className="font-semibold">Grupo AEP</span>.
+              Uma instituição da <span className="font-semibold">AEP</span>.
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" aria-label="Twitter">
-              <Twitter className="h-5 w-5" />
+            <Button variant="ghost" size="icon" aria-label="Facebook" asChild>
+              <Link href="https://www.facebook.com/bosquemananciais">
+                <Facebook className="h-5 w-5" />
+              </Link>
             </Button>
-            <Button variant="ghost" size="icon" aria-label="Facebook">
-              <Facebook className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" aria-label="Instagram">
-              <Instagram className="h-5 w-5" />
+            <Button variant="ghost" size="icon" aria-label="Instagram" asChild>
+              <Link href="https://www.instagram.com/bosquemananciais">
+                <Instagram className="h-5 w-5" />
+              </Link>
             </Button>
           </div>
         </div>

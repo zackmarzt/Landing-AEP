@@ -86,8 +86,17 @@ const ContactSection = () => {
                 </div>
               </div>
             ))}
-            <div className="mt-4 rounded-lg overflow-hidden h-64 bg-muted flex items-center justify-center text-muted-foreground">
-              [Placeholder para o Mapa]
+            <div className="mt-4 rounded-lg overflow-hidden border border-border shadow-sm">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d942.7856426703977!2d-49.26706454083095!3d-25.39217500928224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce6bf14ed9247%3A0xd1620310bf124a61!2sCol%C3%A9gio%20do%20Bosque%20Mananciais%20(Unidade%20Bosque)!5e0!3m2!1spt-BR!2sbr!4v1770905020803!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-[300px] md:h-[450px]"
+              />
             </div>
           </div>
 
