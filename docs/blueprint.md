@@ -1,4 +1,4 @@
-# **App Name**: Bosque Mananciais Landing
+# **App Name**: AEP Landing Page
 
 ## Core Features:
 
