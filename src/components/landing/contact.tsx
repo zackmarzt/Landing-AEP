@@ -52,17 +52,17 @@ const ContactSection = () => {
     {
       icon: <MapPin className="h-6 w-6 text-primary" />,
       title: 'Endereço',
-      text: 'Rua do Bosque, 123, Curitiba, PR, Brasil',
+      text: 'Rua José Kormann, 940 - São Lourenço, Curitiba - PR, 82200-440',
     },
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
       title: 'Telefone',
-      text: '(41) 3333-4444',
+      text: '(41) 3042-1900',
     },
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
       title: 'Email',
-      text: 'contato@bosquemananciais.com.br',
+      text: 'contato@bosquemananciais.org.br',
     },
   ];
 

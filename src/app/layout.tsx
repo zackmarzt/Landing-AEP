@@ -1,10 +1,10 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Colégio do Bosque Mananciais',
-  description: 'Landing page para o Colégio do Bosque Mananciais, parte do Grupo AEP.',
+  title: 'MVP - Colégio do Bosque Mananciais',
+  description: 'MVP do colégio do Bosque Mananciais. Feito por Zack Marzinkowski',
 };
 
 export default function RootLayout({

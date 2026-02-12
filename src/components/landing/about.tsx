@@ -10,17 +10,12 @@ const AboutSection = () => {
     {
       icon: <Target className="h-10 w-10 text-primary" />,
       title: 'Nossa Missão',
-      description: 'Oferecer uma educação de excelência, formando cidadãos críticos, criativos e conscientes, preparados para os desafios do futuro.',
-    },
-    {
-      icon: <Eye className="h-10 w-10 text-primary" />,
-      title: 'Nossa Visão',
-      description: 'Ser referência em educação inovadora, promovendo um ambiente de aprendizado que inspira o desenvolvimento integral de cada aluno.',
+      description: 'Ajudar os pais a garantir para os seus filhos uma educação de excelência, inspirada numa visão transcendente e cristã da vida.',
     },
     {
       icon: <Heart className="h-10 w-10 text-primary" />,
       title: 'Nossos Valores',
-      description: 'Ética, respeito à diversidade, sustentabilidade, colaboração e paixão pelo conhecimento são os pilares que sustentam nossa comunidade escolar.',
+      description: 'Laboriosidade, Sinceridade, Generosidade, Alegria.',
     },
   ];
 
@@ -30,10 +25,13 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="animate-in fade-in slide-in-from-left-12 duration-1000">
             <h2 className="text-3xl md:text-4xl font-headline font-bold mb-6">
-              Uma Educação que Inspira e Transforma
+              Associação de Educação Personalizada - AEP
             </h2>
             <p className="text-muted-foreground mb-8">
-              No Colégio do Bosque Mananciais, acreditamos que cada aluno é único. Nossa abordagem pedagógica visa o desenvolvimento completo, unindo conhecimento acadêmico sólido com a formação de valores essenciais para a vida.
+              O Colégio do Bosque Mananciais é apoiado pela sua mantenedora AEP, formada por diretores altamente capacitados que se dedicam voluntariamente ao projeto educativo. A Associação de Educação Personalizada (AEP) é uma entidade de caráter educativo e sem fins lucrativos. Foi fundada por pais, avós e familiares que sonhavam em criar um colégio de excelência, com uma formação educacional, humana e transcendente completa, para formar os líderes das próximas gerações.
+            </p>
+            <p className="text-muted-foreground mb-8">
+              Juntos, trabalhamos para proporcionar a melhor educação para os nossos alunos, mantendo sempre os valores e a visão que motivou esse projeto desde o início.
             </p>
             <div className="grid gap-6">
               {values.map((value, index) => (
