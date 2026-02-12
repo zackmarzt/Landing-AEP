@@ -24,7 +24,6 @@ const Header = () => {
     { href: '#sobre', label: 'Sobre Nós' },
     { href: '#programas', label: 'Programas' },
     { href: '#galeria', label: 'Galeria' },
-    { href: '#depoimentos', label: 'Depoimentos' },
     { href: '#contato', label: 'Contato' },
   ];
 
@@ -52,7 +51,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2" aria-label="Página inicial do Colégio do Bosque Mananciais">
+          <Link href="/" className="flex items-center gap-2" aria-label="Página inicial da AEP">
             <Logo />
           </Link>
 
@@ -62,7 +61,7 @@ const Header = () => {
 
           <div className="flex items-center gap-4">
             <Button asChild className="hidden sm:flex bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Link href="#contato">Matricule-se</Link>
+              <Link href="#contato">Inscreva-se</Link>
             </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="md:hidden">
@@ -85,7 +84,7 @@ const Header = () => {
                   </nav>
                   <div className="mt-auto p-4">
                     <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                      <Link href="#contato">Matricule-se</Link>
+                      <Link href="#contato">Entre em contato</Link>
                     </Button>
                   </div>
                 </div>

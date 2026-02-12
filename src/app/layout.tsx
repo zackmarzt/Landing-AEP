@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'MVP - Colégio do Bosque Mananciais',
-  description: 'MVP do colégio do Bosque Mananciais. Feito por Zack Marzinkowski',
+  title: 'MVP - AEP',
+  description: 'Um MVP para a AEP. Feito por Zack Marzinkowski',
 };
 
 export default function RootLayout({

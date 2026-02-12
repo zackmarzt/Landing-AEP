@@ -8,7 +8,7 @@ const Logo = ({ className }: { className?: string }) => {
         <Leaf className="h-5 w-5" /> {/* TODO: Add icon */}
       </div>
       <span className="font-headline font-bold text-xl text-foreground">
-        Bosque Mananciais
+        AEP
       </span>
     </div>
   );

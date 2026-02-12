@@ -13,9 +13,9 @@ const Footer = () => {
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <Logo />
             <p className="text-sm text-muted-foreground mt-2">
-              © {currentYear} Colégio do Bosque Mananciais. Todos os direitos reservados.
+              © {currentYear} AEP. Todos os direitos reservados.
               <br />
-              Uma instituição da <span className="font-semibold">AEP</span>.
+              Uma instituição da <span className="font-semibold">Associação de Educação Personalizada</span>.
             </p>
           </div>
           <div className="flex items-center gap-2">
