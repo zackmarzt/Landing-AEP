@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <Logo />
-            <p className="text-sm text-muted-foreground mt-2">
+            <p className="text-sm text-white mt-2">
               © {currentYear} AEP. Todos os direitos reservados.
               <br />
               Uma instituição da <span className="font-semibold">Associação de Educação Personalizada</span>.
