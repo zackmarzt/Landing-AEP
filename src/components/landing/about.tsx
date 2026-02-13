@@ -10,12 +10,12 @@ const AboutSection = () => {
     {
       icon: <Target className="h-10 w-10 text-primary" />,
       title: 'Nossa Missão',
-      description: 'Ajudar os pais a garantir para os seus filhos uma educação de excelência, inspirada numa visão transcendente e cristã da vida.',
+      description: 'Transformar a sociedade promovendo a excelência humana e acadêmica por meio da Educação, da Cultura e da Formação de Lideranças.',
     },
     {
       icon: <Heart className="h-10 w-10 text-primary" />,
       title: 'Nossos Valores',
-      description: 'Laboriosidade, Sinceridade, Generosidade, Alegria.',
+      description: 'Excelência, Formação Integral, Liderança, Responsabilidade Social, Cultura e Tradição.',
     },
   ];
 
@@ -28,10 +28,10 @@ const AboutSection = () => {
               Associação de Educação Personalizada - AEP
             </h2>
             <p className="text-muted-foreground mb-8">
-              O Colégio do Bosque Mananciais é apoiado pela sua mantenedora AEP, formada por diretores altamente capacitados que se dedicam voluntariamente ao projeto educativo. A Associação de Educação Personalizada (AEP) é uma entidade de caráter educativo e sem fins lucrativos. Foi fundada por pais, avós e familiares que sonhavam em criar um colégio de excelência, com uma formação educacional, humana e transcendente completa, para formar os líderes das próximas gerações.
+              A Associação de Educação Personalizada (AEP) é uma entidade sem fins lucrativos que atua na transformação da sociedade através da excelência humana e acadêmica. Fundada por famílias e gerida por uma diretoria voluntária, a AEP é a mantenedora de projetos educacionais e expande sua missão através de pilares fundamentais: Educação, Cultura e Formação de Lideranças.
             </p>
             <p className="text-muted-foreground mb-8">
-              Juntos, trabalhamos para proporcionar a melhor educação para os nossos alunos, mantendo sempre os valores e a visão que motivou esse projeto desde o início.
+              Mais do que uma instituição de ensino, somos um projeto de vida que une formação transcendente e responsabilidade social. Através de nossos colégios, projetos culturais e cursos de liderança, trabalhamos para formar as próximas gerações de líderes, mantendo vivos os valores e a visão que motivaram este sonho desde o início.
             </p>
             <div className="grid gap-6">
               {values.map((value, index) => (

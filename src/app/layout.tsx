@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'MVP - AEP',
+  title: 'AEP',
   description: 'Um MVP para a AEP. Feito por Zack Marzinkowski',
 };
 

@@ -21,6 +21,7 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 const formSchema = z.object({
   name: z.string().min(2, "O nome deve ter pelo menos 2 caracteres."),
   email: z.string().email("Por favor, insira um email válido."),
+  phone: z.string().min(10, "Por favor, insira um número de telefone válido."),
   subject: z.string().min(5, "O assunto deve ter pelo menos 5 caracteres."),
   message: z.string().min(10, "A mensagem deve ter pelo menos 10 caracteres."),
 });
@@ -34,6 +35,7 @@ const ContactSection = () => {
     defaultValues: {
       name: '',
       email: '',
+      phone: '',
       subject: '',
       message: '',
     },
@@ -72,7 +74,7 @@ const ContactSection = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Entre em Contato</h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-            Tem alguma dúvida ou gostaria de agendar uma visita? Preencha o formulário abaixo ou utilize um de nossos canais de atendimento.
+            Tem alguma dúvida ou gostaria de se inscrever em algum dos nossos projetos? Preencha o formulário abaixo ou utilize um de nossos canais de atendimento.
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-12">
@@ -126,6 +128,19 @@ const ContactSection = () => {
                           <FormLabel>Email</FormLabel>
                           <FormControl>
                             <Input placeholder="seu@email.com" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Telefone</FormLabel>
+                          <FormControl>
+                            <Input placeholder="(41) 99999-9999" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

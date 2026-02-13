@@ -1,59 +1,81 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
-import { GraduationCap, PencilRuler, ToyBrick, Music, Swords, BrainCircuit } from 'lucide-react';
+"use client";
 
-const ProgramsSection = () => {
-  const programs = [
-    {
-      value: 'infantil',
-      icon: <ToyBrick className="h-6 w-6 text-primary" />,
-      title: 'Educação Infantil',
-      content: 'Optimist é um projeto educativo inovador e completo para a Educação Infantil. Partindo de investigações científicas realizadas sobre aprendizagens oportunas, oferece-se aos alunos uma rica e organizada estimulação para que alcancem, segundo as condições pessoais de cada um, níveis ótimos de maturidade, desenvolvimento e aprendizagem. Os programas específicos do projeto Optimist aproveitam o período de grande plasticidade neurológica e psicológica, em que a criança tem um enorme potencial de aprendizagem em todos os níveis, e cria um ambiente educativo rico em estímulos, potencializando a inteligência, a criatividade, a segurança e a alegria. Neste projeto, desenvolve-se um conjunto de competências que prepara as crianças para o futuro em todas as áreas. Tudo se desenvolve em um clima sereno e cordial, cujas professoras buscam ser exemplares e recebem um programa intensivo de formação humana e pedagógica. Nosso projeto, intitulado Educação Personalizada, desenvolve o aluno nas 5 dimensões humanas: física, afetivo-social, intelectual, moral e espiritual, em parceria com os pais, primeiros educadores, proporcionando um crescimento sólido e eficaz.',
-    },
-    {
-      value: 'fundamental1',
-      icon: <PencilRuler className="h-6 w-6 text-primary" />,
-      title: 'Ensino Fundamental I',
-      content: 'Nesta fase, consolidamos a alfabetização e introduzimos os alunos a diferentes áreas do saber. Incentivamos a curiosidade, o pensamento crítico e a autonomia com projetos interdisciplinares e aprendizado ativo.',
-    },
-  ];
+import { GraduationCap, Palette } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface Category {
+  id: string;
+  label: string;
+  icon: LucideIcon;
+  description: string;
+}
+
+const categories: Category[] = [
+  {
+    id: "art",
+    label: "Cultura",
+    icon: Palette,
+    description: "Expressão artística e desenvolvimento criativo"
+  },
+  /*{
+    id: "education",
+    label: "Educação",
+    icon: GraduationCap,
+    description: "Aprendizado contínuo e formação acadêmica"
+  },*/
+];
+
+const CategoryGrid = () => {
+  const handleClick = (id: string) => {
+    console.log(`Navigate to ${id}`);
+    // Future navigation logic here
+  };
 
   return (
-    <section id="programas" className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">
-            Nossos Projetos
-          </h2>
-          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-            A AEP tem orgulho de apresentar seus projetos, desenvolvidos com o objetivo de oferecer uma formação cultural integral para crianças e adolescentes.
-          </p>
-        </div>
-
-        <div className="max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-12 duration-1000">
-          <Accordion type="single" collapsible defaultValue="infantil">
-            {programs.map((program) => (
-              <AccordionItem key={program.value} value={program.value}>
-                <AccordionTrigger className="text-left font-headline hover:no-underline">
-                  <div className="flex items-center gap-4">
-                    {program.icon}
-                    <span className="text-lg font-semibold">{program.title}</span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pl-14">
-                  {program.content}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+    <div id="projetos" className="w-full max-w-5xl mx-auto py-20 px-4">
+      <div className="text-center space-y-4 mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+          Conheça nossos projetos
+        </h1>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Explore as iniciativas que transformam vidas através da cultura e educação
+        </p>
       </div>
-    </section>
+
+      <div className="grid grid-cols-1 sm:grid-cols-1 gap-6 md:gap-8 justify-center max-w-4xl mx-auto">
+        {categories.map((cat) => {
+          const Icon = cat.icon;
+          return (
+            <button
+              key={cat.id}
+              onClick={() => handleClick(cat.id)}
+              className={cn(
+                "group relative flex flex-col items-center text-center p-8 md:p-10 rounded-3xl",
+                "bg-card border border-border/50 hover:border-primary/50",
+                "transition-all duration-300 hover:shadow-2xl hover:-translate-y-1",
+                "overflow-hidden"
+              )}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="relative mb-6 p-4 rounded-2xl bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-300">
+                <Icon className="h-10 w-10 md:h-12 md:w-12" />
+              </div>
+
+              <span className="relative text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                {cat.label}
+              </span>
+
+              <span className="relative text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
+                {cat.description}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
-export default ProgramsSection;
+export default CategoryGrid;

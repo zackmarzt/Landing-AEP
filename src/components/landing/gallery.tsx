@@ -17,7 +17,7 @@ const GallerySection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">
-            Conheça Nosso Espaço
+            Fotos de participações
           </h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
             Explore um pouco do nosso dia a dia, eventos e da infraestrutura que oferecemos para o desenvolvimento dos nossos alunos.
