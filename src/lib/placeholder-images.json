@@ -3,74 +3,62 @@
     {
       "id": "hero-background",
       "description": "Crianças felizes aprendendo ao ar livre em um ambiente de floresta",
-      "imageUrl": "https://bosquemananciais.org.br/associacao-de-pais/img/associacao-4.jpg",
-      "imageHint": ""
+      "imageUrl": "https://bosquemananciais.org.br/media/fotos/Orquestra_25.jpg"
     },
     {
       "id": "about-us",
       "description": "Professor ajudando uma aluna com uma atividade em uma sala de aula iluminada",
-      "imageUrl": "https://bosquemananciais.org.br/media/fotos/TERCEIROQUARTOEFUND2-1.jpg",
-      "imageHint": "teacher student"
+      "imageUrl": "https://bosquemananciais.org.br/media/fotos/TERCEIROQUARTOEFUND2-1.jpg"
     },
     {
       "id": "gallery-1",
       "description": "Concerto de música",
-      "imageUrl": "https://bosquemananciais.org.br/associacao-de-pais/img/concerto-1.jpg",
-      "imageHint": "school building"
+      "imageUrl": "https://bosquemananciais.org.br/associacao-de-pais/img/concerto-1.jpg"
     },
     {
       "id": "gallery-2",
       "description": "Laboratório de ciências",
-      "imageUrl": "https://images.unsplash.com/photo-1524683745036-b46f52b8505a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzY2llbmNlJTIwbGFifGVufDB8fHx8MTc3MDkwMzI4OHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "science lab"
+      "imageUrl": "https://images.unsplash.com/photo-1524683745036-b46f52b8505a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzY2llbmNlJTIwbGFifGVufDB8fHx8MTc3MDkwMzI4OHww&ixlib=rb-4.1.0&q=80&w=1080"
     },
     {
       "id": "gallery-3",
       "description": "Evento escolar esportivo",
-      "imageUrl": "https://images.unsplash.com/photo-1639477651629-3afd5d79654d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaGlsZHJlbiUyMHNwb3J0c3xlbnwwfHx8fDE3NzA5MDMyODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "children sports"
+      "imageUrl": "https://images.unsplash.com/photo-1639477651629-3afd5d79654d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaGlsZHJlbiUyMHNwb3J0c3xlbnwwfHx8fDE3NzA5MDMyODh8MA&ixlib=rb-4.1.0&q=80&w=1080"
     },
     {
       "id": "gallery-4",
       "description": "Vida estudantil no pátio",
-      "imageUrl": "https://images.unsplash.com/photo-1662065927381-30fb56699385?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdHVkZW50cyUyMHBsYXlncm91bmR8ZW58MHx8fHwxNzcwOTAzMjkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "students playground"
+      "imageUrl": "https://images.unsplash.com/photo-1662065927381-30fb56699385?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdHVkZW50cyUyMHBsYXlncm91bmR8ZW58MHx8fHwxNzcwOTAzMjkwfDA&ixlib=rb-4.1.0&q=80&w=1080"
     },
     {
       "id": "gallery-5",
       "description": "Apresentação de arte",
-      "imageUrl": "https://images.unsplash.com/photo-1617080090911-91409e3496ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjaGlsZHJlbiUyMGFydHxlbnwwfHx8fDE3NzA5MDMyODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "children art"
+      "imageUrl": "https://images.unsplash.com/photo-1617080090911-91409e3496ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjaGlsZHJlbiUyMGFydHxlbnwwfHx8fDE3NzA5MDMyODl8MA&ixlib=rb-4.1.0&q=80&w=1080"
     },
     {
       "id": "gallery-6",
       "description": "Biblioteca da escola",
-      "imageUrl": "https://images.unsplash.com/photo-1623031345438-387dd3c45e9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzY2hvb2wlMjBsaWJyYXJ5fGVufDB8fHx8MTc3MDg2NjY4OHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "school library"
+      "imageUrl": "https://images.unsplash.com/photo-1623031345438-387dd3c45e9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzY2hvb2wlMjBsaWJyYXJ5fGVufDB8fHx8MTc3MDg2NjY4OHww&ixlib=rb-4.1.0&q=80&w=1080"
     },
     {
       "id": "testimonial-1",
       "description": "Avatar de Ana Silva",
-      "imageUrl": "https://images.unsplash.com/photo-1592621385612-4d7129426394?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDg1NDQ1MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "woman portrait"
+      "imageUrl": "https://images.unsplash.com/photo-1592621385612-4d7129426394?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDg1NDQ1MXww&ixlib=rb-4.1.0&q=80&w=1080"
     },
     {
       "id": "testimonial-2",
       "description": "Avatar de Marcos Pereira",
-      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4NDk1Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "man portrait"
+      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4NDk1Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080"
     },
     {
       "id": "testimonial-3",
       "description": "Avatar de Juliana Costa",
-      "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4MTA2ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "person portrait"
+      "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4MTA2ODh8MA&ixlib=rb-4.1.0&q=80&w=1080"
     },
     {
       "id": "testimonial-4",
       "description": "Avatar de Carla Martins",
-      "imageUrl": "https://images.unsplash.com/photo-1633934214315-d1a99cc349d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b21hbiUyMGZhY2V8ZW58MHx8fHwxNzcwOTAxMzYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "woman face"
+      "imageUrl": "https://images.unsplash.com/photo-1633934214315-d1a99cc349d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b21hbiUyMGZhY2V8ZW58MHx8fHwxNzcwOTAxMzYwfDA&ixlib=rb-4.1.0&q=80&w=1080"
     }
   ]
 }

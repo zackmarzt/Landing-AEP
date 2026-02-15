@@ -9,10 +9,11 @@ export const users = pgTable("users", {
     createdAt: timestamp("created_at").defaultNow(),
 });
 
-export const projects = pgTable("projects", {
+export const pages = pgTable("pages", {
     id: uuid("id").defaultRandom().primaryKey(),
-    title: text("title").notNull(),
-    description: text("description").notNull(),
+    name: text("name").notNull(),
+    summary: text("summary").notNull(),
+    content: text("content"), // New field for main page content
     imageUrls: text("image_urls").array(), // Use array of strings for multiple images
     status: text("status").default("Draft"), // 'Draft' | 'Published'
     featured: boolean("featured").default(false),

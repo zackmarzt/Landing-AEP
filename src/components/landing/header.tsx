@@ -21,8 +21,9 @@ const Header = () => {
   }, []);
 
   const navLinks = [
+    { href: '/', label: 'Início' },
     { href: '#sobre', label: 'Sobre Nós' },
-    { href: '#projetos', label: 'Projetos' },
+    { href: '#paginas', label: 'Páginas' }, // Updated href and label
     { href: '#contato', label: 'Contato' },
   ];
 
@@ -45,7 +46,7 @@ const Header = () => {
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
-        isScrolled ? 'bg-background/80 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-background/80 backdrop-blur-sm shadow-sm' : 'bg-transparent' // Changed shadow-md to shadow-sm
       )}
     >
       <div className="container mx-auto px-4">
@@ -59,9 +60,11 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Button asChild className="hidden sm:flex bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Link href="#contato">Inscreva-se</Link>
-            </Button>
+            <Link href="#contato" passHref>
+              <Button variant="outline" className="hidden sm:flex"> {/* Removed asChild */}
+                Contato
+              </Button>
+            </Link>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="md:hidden">
                 <Button variant="ghost" size="icon">
@@ -82,9 +85,11 @@ const Header = () => {
                     <NavItems />
                   </nav>
                   <div className="mt-auto p-4">
-                    <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                      <Link href="#contato">Entre em contato</Link>
-                    </Button>
+                    <Link href="#contato" passHref>
+                      <Button className="w-full"> {/* Removed asChild */}
+                        Contato
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </SheetContent>

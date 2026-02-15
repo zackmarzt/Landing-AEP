@@ -1,4 +1,4 @@
-import { getProject } from "@/app/actions";
+import { getPage } from "@/app/actions"; // Updated import
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -17,16 +17,16 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 
-interface ProjectDetailsPageProps {
-    params: Promise<{ id: string }>;
+interface PageDetailsPageProps { // Renamed interface
+    params: { id: string }; // params should not be a Promise
 }
 
-export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
-    const { id } = await params;
-    const project = await getProject(id);
+export default async function PageDetailsPage({ params }: PageDetailsPageProps) { // Renamed component
+    const { id } = params; // No await needed for params
+    const page = await getPage(id); // Renamed variable and function
 
-    if (!project) {
-        redirect("/#projects");
+    if (!page) {
+        redirect("/#pages"); // Updated redirect
     }
 
     return (
@@ -34,9 +34,9 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
             <Header />
             <main className="flex-grow container px-4 md:px-6 py-12">
                 <div className="mb-8">
-                    <Link href="/#projects">
+                    <Link href="/#pages"> {/* Updated link */}
                         <Button variant="ghost" className="pl-0 hover:pl-0 hover:bg-transparent text-muted-foreground hover:text-foreground">
-                            <ArrowLeft className="mr-2 h-4 w-4" /> Voltar para Projetos
+                            <ArrowLeft className="mr-2 h-4 w-4" /> Voltar para Páginas {/* Updated text */}
                         </Button>
                     </Link>
                 </div>
@@ -46,30 +46,30 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
                         <div>
                             <div className="flex items-center gap-3 mb-4">
                                 <Badge variant="outline" className="text-sm">
-                                    {project.status === "Published" ? "Concluído" : "Em andamento"}
+                                    {page.status === "Published" ? "Publicado" : "Rascunho"} {/* Changed from "Concluído" to "Publicado" for status */}
                                 </Badge>
-                                {project.createdAt && (
+                                {page.createdAt && (
                                     <div className="flex items-center text-sm text-muted-foreground">
                                         <Calendar className="mr-1 h-3 w-3" />
-                                        {new Date(project.createdAt).toLocaleDateString("pt-BR")}
+                                        {new Date(page.createdAt).toLocaleDateString("pt-BR")}
                                     </div>
                                 )}
                             </div>
                             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6">
-                                {project.title}
+                                {page.name} {/* Updated from project.title to page.name */}
                             </h1>
                         </div>
 
                         <div className="relative aspect-video w-full overflow-hidden rounded-xl border bg-muted shadow-sm">
-                            {project.imageUrls && project.imageUrls.length > 0 ? (
+                            {page.imageUrls && page.imageUrls.length > 0 ? (
                                 <Carousel className="w-full h-full">
                                     <CarouselContent>
-                                        {project.imageUrls.map((url, index) => (
+                                        {page.imageUrls.map((url, index) => (
                                             <CarouselItem key={index}>
                                                 <div className="relative aspect-video">
                                                     <Image
                                                         src={url ?? ""}
-                                                        alt={`${project.title} image ${index + 1}`}
+                                                        alt={`${page.name} image ${index + 1}`} // Updated alt text
                                                         fill
                                                         className="object-cover"
                                                         priority={index === 0}
@@ -78,7 +78,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
                                             </CarouselItem>
                                         ))}
                                     </CarouselContent>
-                                    {project.imageUrls.length > 1 && (
+                                    {page.imageUrls.length > 1 && (
                                         <>
                                             <CarouselPrevious className="left-4" />
                                             <CarouselNext className="right-4" />
@@ -94,17 +94,17 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
 
                         <div className="prose prose-lg dark:prose-invert max-w-none">
                             <p className="whitespace-pre-wrap leading-relaxed text-muted-foreground">
-                                {project.description}
+                                {page.summary} {/* Display summary first */}
                             </p>
+                            {page.content && (
+                                <div dangerouslySetInnerHTML={{ __html: page.content }} /> // Render content as HTML
+                            )}
                         </div>
                     </div>
 
                     <div className="space-y-8">
                         <div className="rounded-xl border bg-card text-card-foreground shadow-sm p-6">
-                            <h3 className="font-semibold text-xl mb-4">Sobre este Projeto</h3>
-                            <p className="text-sm text-muted-foreground mb-6">
-                                Este projeto é uma das iniciativas da Associação Escola do Povo para promover o desenvolvimento comunitário e a educação.
-                            </p>
+                            <h3 className="font-semibold text-xl mb-4">Sobre esta Página</h3> {/* Updated text */}
                             <Separator className="my-4" />
                             <div className="space-y-4">
                                 <h4 className="text-sm font-medium">Compartilhar</h4>

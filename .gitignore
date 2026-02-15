@@ -43,3 +43,8 @@ next-env.d.ts
 # firebase
 firebase-debug.log
 firestore-debug.log
+
+# postgres
+postgresql.log
+postgres.log
+pg.log

@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
                         <div className="flex items-center gap-4 mt-6">
                           <Avatar>
                             {avatarImage && (
-                              <AvatarImage src={avatarImage.imageUrl} alt={testimonial.name} data-ai-hint={avatarImage.imageHint}/>
+                              <AvatarImage src={avatarImage.imageUrl} alt={testimonial.name}/>
                             )}
                             <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                           </Avatar>

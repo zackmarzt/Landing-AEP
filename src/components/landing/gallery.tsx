@@ -44,7 +44,6 @@ const GallerySection = () => {
                           fill
                           className="object-cover"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          data-ai-hint={image.imageHint}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <p className="absolute bottom-4 left-4 text-white font-semibold font-body">

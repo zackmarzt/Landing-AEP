@@ -36,6 +36,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  transpilePackages: ['react-hook-form'], // Add this line
 };
 
 export default nextConfig;

@@ -1,5 +1,3 @@
-"use client";
-
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -52,17 +50,17 @@ const ContactSection = () => {
 
   const contactInfo = [
     {
-      icon: <MapPin className="h-6 w-6 text-primary" />,
+      icon: <MapPin className="h-6 w-6 text-muted-foreground" />, // Changed to text-muted-foreground
       title: 'Endereço',
       text: 'Rua José Kormann, 940 - São Lourenço, Curitiba - PR, 82200-440',
     },
     {
-      icon: <Phone className="h-6 w-6 text-primary" />,
+      icon: <Phone className="h-6 w-6 text-muted-foreground" />, // Changed to text-muted-foreground
       title: 'Telefone',
       text: '(41) 3042-1900',
     },
     {
-      icon: <Mail className="h-6 w-6 text-primary" />,
+      icon: <Mail className="h-6 w-6 text-muted-foreground" />, // Changed to text-muted-foreground
       title: 'Email',
       text: 'cultura@aepbr.org.br',
     },
@@ -73,7 +71,7 @@ const ContactSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Entre em Contato</h2>
-          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto leading-relaxed"> {/* Added leading-relaxed */}
             Tem alguma dúvida ou gostaria de se inscrever em algum dos nossos projetos? Preencha o formulário abaixo ou utilize um de nossos canais de atendimento.
           </p>
         </div>
@@ -172,7 +170,7 @@ const ContactSection = () => {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" size="lg">
+                    <Button type="submit" variant="default" className="w-full" size="lg"> {/* Changed to variant="default" */}
                       Enviar Mensagem
                     </Button>
                   </form>

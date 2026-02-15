@@ -25,27 +25,32 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { createProject, updateProject } from "@/app/actions";
+import { createPage, updatePage } from "@/app/actions"; // Updated imports
 import { Loader2, X } from "lucide-react";
 import Image from "next/image";
+import { pages } from "@/db/schema"; // Assuming 'pages' is the correct schema export
+
+// Infer the type for the Page from Drizzle schema
+type Page = typeof pages.$inferSelect;
 
 // Define schema locally since we only use it here for validation
 const formSchema = z.object({
-    title: z.string().min(2, {
-        message: "O título deve ter pelo menos 2 caracteres.",
+    name: z.string().min(2, {
+        message: "O nome deve ter pelo menos 2 caracteres.",
     }),
-    description: z.string().min(10, {
-        message: "A descrição deve ter pelo menos 10 caracteres.",
+    summary: z.string().min(10, {
+        message: "O resumo deve ter pelo menos 10 caracteres.",
     }),
+    content: z.string().optional(), // New field for main content
     status: z.enum(["Draft", "Published"]),
     imageUrl: z.string().url({ message: "Insira uma URL válida." }).optional().or(z.literal("")),
 });
 
-interface ProjectFormProps {
-    initialData?: any; // Start strict, loosen if needed for Drizzle types
+interface PageFormProps {
+    initialData?: Page; // Use the Page type from schema
 }
 
-export default function ProjectForm({ initialData }: ProjectFormProps) {
+export default function PageForm({ initialData }: PageFormProps) {
     const router = useRouter();
     const { toast } = useToast();
     const [loading, setLoading] = useState(false);
@@ -57,8 +62,9 @@ export default function ProjectForm({ initialData }: ProjectFormProps) {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            title: initialData?.title || "",
-            description: initialData?.description || "",
+            name: initialData?.name || "",
+            summary: initialData?.summary || "",
+            content: initialData?.content || "", // New content field
             status: initialData?.status || "Draft",
             imageUrl: defaultImageUrl,
         },
@@ -75,8 +81,9 @@ export default function ProjectForm({ initialData }: ProjectFormProps) {
         setLoading(true);
         try {
             const formData = new FormData();
-            formData.append("title", values.title);
-            formData.append("description", values.description);
+            formData.append("name", values.name);
+            formData.append("summary", values.summary);
+            formData.append("content", values.content || ""); // Include content
             formData.append("status", values.status);
             if (values.imageUrl) {
                 formData.append("imageUrl", values.imageUrl);
@@ -84,21 +91,21 @@ export default function ProjectForm({ initialData }: ProjectFormProps) {
 
             if (initialData) {
                 // We need updates to be handled by a server action that accepts the ID
-                await updateProject(initialData.id, formData);
-                toast({ title: "Projeto atualizado com sucesso!" });
+                await updatePage(initialData.id, formData);
+                toast({ title: "Página atualizada com sucesso!" });
             } else {
-                await createProject(formData);
-                toast({ title: "Projeto criado com sucesso!" });
+                await createPage(formData);
+                toast({ title: "Página criada com sucesso!" });
             }
 
             // Redirect client-side to avoid try/catch issues with server redirects
-            router.push("/admin");
+            router.push("/admin/pages"); // Redirect to /admin/pages
             router.refresh();
         } catch (error) {
             console.error(error);
             toast({
-                title: "Erro ao salvar projeto",
-                description: "Ocorreu um erro ao tentar salvar o projeto. Tente novamente.",
+                title: "Erro ao salvar página",
+                description: "Ocorreu um erro ao tentar salvar a página. Tente novamente.",
                 variant: "destructive",
             });
         } finally {
@@ -111,12 +118,12 @@ export default function ProjectForm({ initialData }: ProjectFormProps) {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 <FormField
                     control={form.control}
-                    name="title"
+                    name="name"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Título do Projeto</FormLabel>
+                            <FormLabel>Título da Página</FormLabel>
                             <FormControl>
-                                <Input placeholder="Residencial Bosque das Águas" {...field} />
+                                <Input placeholder="Título da sua página" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -124,17 +131,37 @@ export default function ProjectForm({ initialData }: ProjectFormProps) {
                 />
                 <FormField
                     control={form.control}
-                    name="description"
+                    name="summary"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Descrição Completa</FormLabel>
+                            <FormLabel>Resumo da Página</FormLabel>
                             <FormControl>
                                 <Textarea
-                                    placeholder="Descreva os detalhes, desafios e resultados do projeto..."
-                                    className="min-h-[200px]"
+                                    placeholder="Um breve resumo sobre a página..."
+                                    className="min-h-[100px]"
                                     {...field}
                                 />
                             </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="content"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Conteúdo da Página</FormLabel>
+                            <FormControl>
+                                <Textarea
+                                    placeholder="Conteúdo completo da sua página (ex: Markdown, HTML)"
+                                    className="min-h-[300px]"
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormDescription>
+                                Adicione o conteúdo detalhado da sua página aqui.
+                            </FormDescription>
                             <FormMessage />
                         </FormItem>
                     )}
@@ -172,7 +199,7 @@ export default function ProjectForm({ initialData }: ProjectFormProps) {
                                 <Input placeholder="https://exemplo.com/imagem.jpg" {...field} />
                             </FormControl>
                             <FormDescription>
-                                Insira a URL de uma imagem para o projeto (ex: Unsplash).
+                                Insira a URL de uma imagem para a página (ex: Unsplash).
                             </FormDescription>
                             <FormMessage />
                         </FormItem>
@@ -202,7 +229,7 @@ export default function ProjectForm({ initialData }: ProjectFormProps) {
 
                 <Button type="submit" disabled={loading}>
                     {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    {initialData ? "Salvar Alterações" : "Criar Projeto"}
+                    {initialData ? "Salvar Página" : "Criar Página"}
                 </Button>
             </form>
         </Form>

@@ -1,47 +1,49 @@
 "use server";
 
 import { db } from "@/db/drizzle";
-import { projects } from "@/db/schema";
+import { pages } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth, signOut } from "@/auth";
 
 // Public Actions
-export async function getProjects() {
-    return await db.query.projects.findMany({
-        where: eq(projects.status, "Published"),
-        orderBy: [desc(projects.createdAt)],
+export async function getPages() {
+    return await db.query.pages.findMany({
+        where: eq(pages.status, "Published"),
+        orderBy: [desc(pages.createdAt)],
     });
 }
 
-export async function getProject(id: string) {
-    return await db.query.projects.findFirst({
-        where: eq(projects.id, id),
+export async function getPage(id: string) {
+    return await db.query.pages.findFirst({
+        where: eq(pages.id, id),
     });
 }
 
-export async function getAllProjects() {
+export async function getAllPages() {
     const session = await auth();
     if (!session) throw new Error("Unauthorized");
-    return await db.query.projects.findMany({
-        orderBy: [desc(projects.createdAt)],
+    return await db.query.pages.findMany({
+        orderBy: [desc(pages.createdAt)],
     });
 }
 
 // Protected Actions
-export async function createProject(formData: FormData) {
+export async function createPage(formData: FormData) {
     const session = await auth();
     if (!session) throw new Error("Unauthorized");
 
-    const title = formData.get("title") as string;
-    const description = formData.get("description") as string;
+    const name = formData.get("name") as string;
+    const summary = formData.get("summary") as string;
+    const content = formData.get("content") as string; // New field
     const status = formData.get("status") as string;
     const imageUrl = formData.get("imageUrl") as string;
 
-    await db.insert(projects).values({
-        title,
-        description,
+    await db.insert(pages).values({
+        name,
+        summary,
+        content,
         status,
         imageUrls: imageUrl ? [imageUrl] : [], // Simple array with one URL for now
     });
@@ -51,36 +53,38 @@ export async function createProject(formData: FormData) {
     return { success: true };
 }
 
-export async function updateProject(id: string, formData: FormData) {
+export async function updatePage(id: string, formData: FormData) {
     const session = await auth();
     if (!session) throw new Error("Unauthorized");
 
-    const title = formData.get("title") as string;
-    const description = formData.get("description") as string;
+    const name = formData.get("name") as string;
+    const summary = formData.get("summary") as string;
+    const content = formData.get("content") as string; // New field
     const status = formData.get("status") as string;
     const imageUrl = formData.get("imageUrl") as string;
 
     await db
-        .update(projects)
+        .update(pages)
         .set({
-            title,
-            description,
+            name,
+            summary,
+            content,
             status,
             imageUrls: imageUrl ? [imageUrl] : [],
             updatedAt: new Date(),
         })
-        .where(eq(projects.id, id));
+        .where(eq(pages.id, id));
 
     revalidatePath("/admin");
     revalidatePath("/");
     return { success: true };
 }
 
-export async function deleteProject(id: string) {
+export async function deletePage(id: string) {
     const session = await auth();
     if (!session) throw new Error("Unauthorized");
 
-    await db.delete(projects).where(eq(projects.id, id));
+    await db.delete(pages).where(eq(pages.id, id));
     revalidatePath("/admin");
 }
 
