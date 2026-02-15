@@ -23,11 +23,11 @@ export default async function Home() {
     <div className="flex flex-col min-h-dvh bg-background text-foreground">
       <Header />
       <main className="flex-grow">
-        <IntroTextSection /> {/* New IntroTextSection */}
+        <IntroTextSection />
         <HeroSection />
         <PagesSection />
         <AboutSection />
-        <ClientContactSectionWrapper /> {/* Use the wrapper */}
+        <ClientContactSectionWrapper />
       </main>
       <Footer />
       <BackToTopButton />
