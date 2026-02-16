@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/db/drizzle";
-import { pages } from "@/db/schema";
+import { pages, contactSubmissions } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -30,6 +30,14 @@ export async function getAllPages() {
 }
 
 // Protected Actions
+import { getAllContacts, createContact, updateContactStatus, getContactStats } from "@/lib/contacts";
+
+export async function getContacts() {
+    const session = await auth();
+    if (!session) throw new Error("Unauthorized");
+    return await getAllContacts();
+}
+
 export async function createPage(formData: FormData) {
     const session = await auth();
     if (!session) throw new Error("Unauthorized");
@@ -90,4 +98,52 @@ export async function deletePage(id: string) {
 
 export async function logout() {
     await signOut({ redirectTo: "/admin/login" });
+}
+
+export async function submitContactForm(formData: FormData) {
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const subject = formData.get("subject") as string;
+    const message = formData.get("message") as string;
+
+    // Server-side validation (basic)
+    if (!name || !email || !message) {
+        return { success: false, error: "Missing required fields" };
+    }
+
+    const { createContact } = await import("@/lib/contacts");
+    const result = await createContact({
+        name,
+        email,
+        phone,
+        subject,
+        message,
+    });
+
+    if (result.success) {
+        revalidatePath("/admin/contacts");
+        return { success: true };
+    } else {
+        return { success: false, error: "Failed to submit form" };
+    }
+}
+
+export async function updateContactStatusAction(id: string, status: string) {
+    const session = await auth();
+    if (!session) throw new Error("Unauthorized");
+
+    const result = await updateContactStatus(id, status);
+    if (result.success) {
+        revalidatePath("/admin/contacts");
+        return { success: true };
+    } else {
+        return { success: false, error: "Failed to update contact status" };
+    }
+}
+
+export async function getContactStatsAction() {
+    const session = await auth();
+    if (!session) throw new Error("Unauthorized");
+    return await getContactStats();
 }

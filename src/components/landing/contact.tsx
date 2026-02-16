@@ -15,6 +15,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { submitContactForm } from '@/app/actions';
+import { useState } from 'react';
+
 
 const formSchema = z.object({
   name: z.string().min(2, "O nome deve ter pelo menos 2 caracteres."),
@@ -39,13 +42,31 @@ const ContactSection = () => {
     },
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    toast({
-      title: "Mensagem Enviada!",
-      description: "Obrigado por entrar em contato. Retornaremos em breve.",
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async (data: FormData) => {
+    setIsLoading(true);
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
     });
-    form.reset();
+
+    const result = await submitContactForm(formData);
+    setIsLoading(false);
+
+    if (result.success) {
+      toast({
+        title: "Mensagem Enviada!",
+        description: "Obrigado por entrar em contato. Retornaremos em breve.",
+      });
+      form.reset();
+    } else {
+      toast({
+        title: "Erro ao enviar",
+        description: "Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.",
+        variant: "destructive",
+      });
+    }
   };
 
   const contactInfo = [
@@ -170,8 +191,8 @@ const ContactSection = () => {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" variant="default" className="w-full" size="lg"> {/* Changed to variant="default" */}
-                      Enviar Mensagem
+                    <Button type="submit" variant="default" className="w-full" size="lg" disabled={isLoading}>
+                      {isLoading ? "Enviando..." : "Enviar Mensagem"}
                     </Button>
                   </form>
                 </Form>

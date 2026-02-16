@@ -25,3 +25,14 @@ export const settings = pgTable("settings", {
     key: text("key").primaryKey(),
     value: text("value"),
 });
+
+export const contactSubmissions = pgTable("contact_submissions", {
+    id: uuid("id").defaultRandom().primaryKey(),
+    name: text("name").notNull(),
+    email: text("email").notNull(),
+    phone: text("phone"),
+    subject: text("subject"),
+    message: text("message").notNull(),
+    status: text("status").default("Unread"), // 'Unread' | 'Read' | 'Replied'
+    createdAt: timestamp("created_at").defaultNow(),
+});

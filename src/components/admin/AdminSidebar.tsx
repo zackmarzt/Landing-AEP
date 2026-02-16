@@ -11,8 +11,7 @@ export default function AdminSidebar() {
 
     const navItems = [
         { href: "/admin", label: "Dashboard" },
-        { href: "/admin/pages", label: "Páginas" },
-        { href: "/admin/pages/new", label: "Nova Página" },
+        { href: "/admin/contacts", label: "Contatos" },
         // Add other admin links here if needed
     ];
 

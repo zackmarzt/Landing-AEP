@@ -8,6 +8,13 @@
       "when": 1771096117530,
       "tag": "0000_far_tana_nile",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1771247309924,
+      "tag": "0001_small_killer_shrike",
+      "breakpoints": true
     }
   ]
 }
