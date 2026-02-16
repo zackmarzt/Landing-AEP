@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, Palette } from "lucide-react";
+import { Palette } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 

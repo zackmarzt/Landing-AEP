@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -21,7 +20,7 @@ const TestimonialsSection = () => {
       avatarId: 'testimonial-1',
     },
     {
-      quote: "A infraestrutura é fantástica e as atividades extracurriculares são muito diversificadas. Sinto que minha filha está preparada para qualquer desafio.",
+      quote: "&ldquo;AEP transformed my child&rsquo;s confidence and skills. The coaches are exceptional!&rdquo;",
       name: 'Marcos Pereira',
       role: 'Pai de aluna do Fundamental II',
       avatarId: 'testimonial-2',
@@ -68,12 +67,12 @@ const TestimonialsSection = () => {
                     <Card className="h-full flex flex-col justify-between shadow-lg">
                       <CardContent className="p-6">
                         <blockquote className="text-muted-foreground italic border-l-4 border-primary pl-4 mb-4">
-                          "{testimonial.quote}"
+                          &ldquo;{testimonial.quote}&rdquo;
                         </blockquote>
                         <div className="flex items-center gap-4 mt-6">
                           <Avatar>
                             {avatarImage && (
-                              <AvatarImage src={avatarImage.imageUrl} alt={testimonial.name}/>
+                              <AvatarImage src={avatarImage.imageUrl} alt={testimonial.name} />
                             )}
                             <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                           </Avatar>

@@ -1,9 +1,7 @@
 
 import { db } from "@/db/drizzle";
 import { users, settings } from "@/db/schema";
-import { eq } from "drizzle-orm";
 import { hash } from "bcryptjs";
-import { redirect } from "next/navigation";
 
 export async function checkIsSetup() {
     // Check if we have any users

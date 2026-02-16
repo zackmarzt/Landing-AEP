@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Target, Eye, Heart } from 'lucide-react';
+import { Target, Heart } from 'lucide-react';
 
 const AboutSection = () => {
   const aboutImage = PlaceHolderImages.find(p => p.id === 'about-us');

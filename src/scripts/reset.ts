@@ -1,7 +1,6 @@
 
 import { db } from "@/db/drizzle";
-import { users, pages, settings, contactSubmissions } from "@/db/schema";
-import { sql } from "drizzle-orm";
+import { users, pages, contactSubmissions, settings } from "@/db/schema";
 
 async function reset() {
     console.log("🗑️ Clearing database...");

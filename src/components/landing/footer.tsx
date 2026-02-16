@@ -1,7 +1,4 @@
-import Link from 'next/link';
 import Logo from '@/components/logo';
-import { Button } from '@/components/ui/button';
-import { Facebook, Instagram } from 'lucide-react';
 import Image from 'next/image';
 import logoImg from '@/app/logo.png';
 

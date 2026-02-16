@@ -1,6 +1,5 @@
 import { checkIsSetup } from "@/lib/setup";
 import { redirect } from "next/navigation";
-import { logout } from "@/app/actions";
 import AdminSidebar from "@/components/admin/AdminSidebar"; // New import
 import { Metadata } from "next";
 

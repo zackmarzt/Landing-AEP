@@ -1,11 +1,11 @@
 "use server";
 
 import { db } from "@/db/drizzle";
-import { pages, contactSubmissions } from "@/db/schema";
+import { pages } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 import { auth, signOut } from "@/auth";
+import { getAllContacts, updateContactStatus, getContactStats } from "@/lib/contacts";
 
 // Public Actions
 export async function getPages() {
@@ -30,8 +30,6 @@ export async function getAllPages() {
 }
 
 // Protected Actions
-import { getAllContacts, createContact, updateContactStatus, getContactStats } from "@/lib/contacts";
-
 export async function getContacts() {
     const session = await auth();
     if (!session) throw new Error("Unauthorized");
