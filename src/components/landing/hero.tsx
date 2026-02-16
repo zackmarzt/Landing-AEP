@@ -21,7 +21,7 @@ const HeroSection = () => {
 
       {/* Main text content */}
       <div className="relative z-20 flex flex-col items-center justify-start h-full pt-8 animate-in fade-in zoom-in-95 duration-1000">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline font-extrabold tracking-tight drop-shadow-lg text-center">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline font-bold tracking-tight text-center">
           Líderes que Transformam,<br />Valores que Permanecem.
         </h1>
       </div>

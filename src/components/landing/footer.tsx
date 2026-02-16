@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Logo from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { Facebook, Instagram } from 'lucide-react';
+import Image from 'next/image';
+import logoImg from '@/app/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,19 +20,14 @@ const Footer = () => {
               Uma instituição da <span className="font-semibold text-foreground">Associação de Educação Personalizada</span>.
             </p>
           </div>
-          <div className="flex items-center gap-2">
-            <Link href="https://www.facebook.com/bosquemananciais" passHref>
-              <Button variant="ghost" size="icon" aria-label="Facebook" className="text-muted-foreground hover:text-foreground">
-                <Facebook className="h-5 w-5" />
-              </Button>
-            </Link>
-            <Link href="https://www.instagram.com/bosquemananciais" passHref>
-              <Button variant="ghost" size="icon" aria-label="Instagram" className="text-muted-foreground hover:text-foreground">
-                <Instagram className="h-5 w-5" />
-              </Button>
-            </Link>
+          <div className="relative w-24 h-24">
+            <Image
+              src={logoImg}
+              alt="Logo AEP"
+              fill
+              className="object-contain"
+            />
           </div>
-          <Logo className="w-10 h-10" /> {/* Added AEP logo to the right */}
         </div>
       </div>
     </footer>
