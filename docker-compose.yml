@@ -31,7 +31,7 @@ services:
       - "${APP_PORT:-3000}:3000"
     environment:
       # Database
-      DATABASE_URL: postgresql://${POSTGRES_USER:-aep_user}:${POSTGRES_PASSWORD:-aep_password}@db:5432/${POSTGRES_DB:-aep_db}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-aep_user}:${POSTGRES_PASSWORD:-aep_password}@aep-postgres:5432/${POSTGRES_DB:-aep_db}
       
       # NextAuth
       AUTH_SECRET: ${AUTH_SECRET}
