@@ -18,11 +18,11 @@ import {
 } from "@/components/ui/carousel";
 
 interface PageDetailsPageProps { // Renamed interface
-    params: { id: string }; // params should not be a Promise
+    params: Promise<{ id: string }>; // In Next.js 15, params is a Promise
 }
 
 export default async function PageDetailsPage({ params }: PageDetailsPageProps) { // Renamed component
-    const { id } = params; // No await needed for params
+    const { id } = await params; // Await params in Next.js 15
     const page = await getPage(id); // Renamed variable and function
 
     if (!page) {

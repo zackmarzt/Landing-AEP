@@ -6,6 +6,6 @@ export interface Project {
     description: string;
     imageUrls: string[];
     status: 'Draft' | 'Published';
-    createdAt: Timestamp | any;
+    createdAt: Date;
     featured?: boolean; // Optional: to highlight specific projects
 }
