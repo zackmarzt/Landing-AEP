@@ -16,6 +16,12 @@ const Footer = () => {
               <br />
               Uma instituição da <span className="font-semibold text-foreground">Associação de Educação Personalizada</span>.
             </p>
+            <a
+              href="/politica-de-privacidade"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors mt-2 underline underline-offset-4"
+            >
+              Política de Privacidade
+            </a>
           </div>
           <div className="relative w-24 h-24">
             <Image

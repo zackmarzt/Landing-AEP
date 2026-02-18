@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Roboto, Space_Grotesk } from 'next/font/google';
+import CookieBanner from '@/components/landing/cookie-banner';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${roboto.variable} ${spaceGrotesk.variable} font-body antialiased`}>
         {children}
         <Toaster />
+        <CookieBanner />
       </body>
     </html>
   );
